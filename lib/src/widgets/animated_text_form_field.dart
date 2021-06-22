@@ -42,6 +42,7 @@ class AnimatedTextFormField extends StatefulWidget {
     this.focusNode,
     this.validator,
     this.onFieldSubmitted,
+    this.autoFillHints,
     this.onSaved,
   })  : assert((inertiaController == null && inertiaDirection == null) ||
             (inertiaController != null && inertiaDirection != null)),
@@ -59,6 +60,7 @@ class AnimatedTextFormField extends StatefulWidget {
   final TextInputAction textInputAction;
   final bool obscureText;
   final TextEditingController controller;
+  final List<String> autoFillHints;
   final FocusNode focusNode;
   final FormFieldValidator<String> validator;
   final ValueChanged<String> onFieldSubmitted;
@@ -214,6 +216,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
       onSaved: widget.onSaved,
       validator: widget.validator,
       enabled: widget.enabled,
+      autofillHints: widget.autoFillHints,
     );
 
     if (widget.loadingController != null) {
@@ -338,6 +341,7 @@ class _AnimatedPasswordTextFormFieldState
       onFieldSubmitted: widget.onFieldSubmitted,
       onSaved: widget.onSaved,
       inertiaDirection: widget.inertiaDirection,
+      autoFillHints: [AutofillHints.password],
     );
   }
 }

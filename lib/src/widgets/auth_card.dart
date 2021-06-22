@@ -514,6 +514,9 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       },
       validator: widget.emailValidator,
       onSaved: (value) => auth.email = value,
+      autoFillHints: [
+        AutofillHints.username,
+      ],
     );
   }
 
